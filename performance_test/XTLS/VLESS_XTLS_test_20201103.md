@@ -3,7 +3,7 @@
     - CPU Model name:Intel Xeon Processor (Skylake, IBRS)*1 
     - CPU MHz: 2593.904
     - 支持AES指令
-    - 1G内存
+    - 2G内存
     - 10Gbps上下行带宽
     - 公网IP
 * 系统：Debian 10
@@ -36,8 +36,8 @@
 ## 测试说明
   * 此测试去掉了关闭特殊功能
   * 以下单位均为Mbps
-  * 1K,2K,4K,16K指TLS record大小 (1K,2K,4K未测试,待补)
-  * none指没有TLS或者加密(VLESS over TCP),即纯TCP模式裸奔,可以认为是测试模式的上限参考值.
+  * 1K,2K,4K,16K指TLS record大小
+  * none指没有TLS或者加密,即纯TCP模式裸奔(VLESS over TCP),可以认为是测试模式的上限参考值.
   * 数据流向：
    - A,ethr client  
   -->B,inbound(dokodemo-door),outbound(VLESS over TCP/with TLS/with XTLS)  
@@ -50,20 +50,20 @@
 
 ReadV|	1K|	2K|	4K|	16K
 ---- | ---| ---| ---| ---
-none|	-|	-|	-|	**860.2**
-TLS	|-|	-	|-|	433.6
-XTLS(origin)|	-|	-|-|	507.7
-XTLS(direct)|	-|	-|	-|	**788.8**
+none|	**730.9**|**816.5**|	**825.5**|	**860.2**
+TLS	|402.6|	394.6	|439.4|	433.6
+XTLS(origin)|	357.3|	381.6|448.5|	507.7
+XTLS(direct)|	**620**|	**685.6**|	**716.5**|	**788.8**
 
 
 4.32.0|	1K|	2K|	4K|	16K
 ---- | ---| ---| ---| ---
-none|	-|	-|	-|	879.9
-TLS	|-|	-	|-|	454.6
-XTLS(origin)|	-|	-|-|	533.3
-XTLS(direct)|	-|	-|	-|	498.9
+none|	744|	812.2|	826|	879.9
+TLS	|391.4|	426.1	|421.3|	454.6
+XTLS(origin)|	372|387.7	|453.3|	533.3
+XTLS(direct)|	438.4|448.2	|	472.5|	498.9
 
-2. 限制B的性能为20%时
+1. 限制B的性能为20%时
 
 ReadV|	1K|	2K|	4K|	16K
 ---- | ---| ---| ---| ---
@@ -83,8 +83,9 @@ XTLS(direct)|	-|	-|	-|	628.8
 ## 结论
   
   * 测试模式中数据未能100%被XTLS处理,并且不可知多少部分被XTLS处理,但去掉关闭特殊功能后,可以观察得到=10的输出仅在测试开始,并且后续10个连接均很快进入流控模式.所以应该可以大致认为未被XTLS处理的数据并不多.
-  * 4.32.0的表现与[第三次测试](https://github.com/badO1a5A90/v2ray-doc/blob/master/performance_test/XTLS/VLESS_XTLS_3_test_03.md)一致,当限制C的性能时,应该是大多数时候都高于origin,在16K时候略低于origin.
-  * **当限制C时(即接收为瓶颈),ReadV模式强悍,提升到几乎和none(裸奔)持平的水准.**
-  * 当限制B时(即发送为瓶颈),ReadV模式和普通版本的direct表现基本相当(略高可能属于测试浮动).
-  * XTLS相对于TLS能提升多少与硬件相关并没有标准(性能越低提升越高,无硬解更能多一次翻倍提升),**若XTLS表现能接近纯TCP,应该可认为已经达到目前所有协议/配置组合所能达到的极限值**
+  * 4.32.0的表现与[第三次测试](https://github.com/badO1a5A90/v2ray-doc/blob/master/performance_test/XTLS/VLESS_XTLS_3_test_03.md)一致,当限制C的性能时,大多数时候都高于origin,在16K时候略低于origin.
+  * readV模式:
+    * **当限制C时(即接收为瓶颈),ReadV模式强悍,提升到几乎和none(裸奔)持平的水准.**
+    * 当限制B时(即发送为瓶颈),ReadV模式和普通版本的direct表现基本相当(略高可能属于测试浮动).
+  * XTLS相对于TLS能提升多少与硬件相关并没有标准(性能越低提升越高,无硬解更能多一次翻倍提升),**若XTLS表现能接近纯TCP,应该可认为已经达到目前所有协议/配置组合所能达到的极限值(接近裸奔)**
   * 补充:关闭特殊功能在实际使用中,正常的TLS数据流几乎不会触发

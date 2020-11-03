@@ -16,7 +16,7 @@
 2020.10
 
 ## 重要TIP
-  * 2020.11更新,关于下面结论,更多请参考[第四次测试]https://github.com/badO1a5A90/v2ray-doc/blob/master/performance_test/XTLS/VLESS_XTLS_test_20201103.md
+  * 2020.11更新,关于下面结论,更多请参考[第四次测试](https://github.com/badO1a5A90/v2ray-doc/blob/master/performance_test/XTLS/VLESS_XTLS_test_20201103.md)
   * 测试模式中数据未能100%被XTLS处理,并且不可知多少部分被XTLS处理,所以
     * 提升仅能代表部分数据被XTLS处理的提升效果
     * 并不能代表XTLS可以带来的最大提升效果.
