@@ -1,5 +1,5 @@
 
-## 推荐使用的几种组合的传输速率对比
+## 前言
 
 本次性能测试的组合除个别用于性能对比参考,都能相对保证安全，并且通过分流或回落具有较高伪装性，可以根据自己的需求不同使用不同组合模式.
 
@@ -63,7 +63,7 @@
 
   * 从服务器流向客户端
 
-    A,iperf client+v2ray inbound(dokodemo-door),outbound(freedom with TLS) 
+    A,iperf client+v2ray inbound(dokodemo-door),outbound(freedom with TLS)  
     <--B,inbound(dokodemo-door),outbound(各种协议组合)  
     <--C,inbound(各种协议组合),outbound(freedom)  
     <--D,v2ray inbound(dokodemo-door with TLS),outbound(freedom)+iperf server
