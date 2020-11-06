@@ -17,10 +17,12 @@
     - 10Gbps上下行带宽
     - 公网IP
 * 系统：Debian 10
+* 所有机器均支持 AES-NI 硬件加速指令集
+
 
 ## 测试工具
 * iperf 3.6
-* v2ray 4.32.?(with VLESS XTLS readV)
+* v2ray 4.32.1(with VLESS XTLS readV)
 * nginx openresty/1.17.8.2
   
 ## 重要TIP
@@ -87,7 +89,7 @@ vmess over ws, (chacha20-poly1305)	|590 Mbits/sec
   ---
   1. A-D直连(跳过BC)可视为A-D使用TLS加密数据测试的上限值
   2. VLESS over TCP, no TLS 即常说的裸奔速度
-  3. **VLESS over TCP, XTLS(direct) 几乎和裸奔完全一致(必须是4.32.?版本以上的VLESS over TCP, XTLS(direct)才有readV,才可以达到这个性能)**
+  3. **VLESS over TCP, XTLS(direct) 几乎和裸奔完全一致(必须是4.32.1版本以上的VLESS over TCP, XTLS(direct)才有readV,才可以达到这个性能)**
   4. XTLS(origin)的速度仍然比较奇怪
   5. 如果使用v2ray,协议用VLESS还是trojan可认为没有性能区别.
   6. **v2ray**'trojan也可以用XTLS.
