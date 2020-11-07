@@ -11,9 +11,9 @@
 
 ## 测试环境
 * 四台VPS：
-    - AD:Intel(R) Xeon(R) CPU E3-1270 v6*8,32G
+    - AD:Intel(R) Xeon(R) CPU E3-1270 v6 3.80GHz*8 ,32G
     - C:Intel Core Processor (Skylake, IBRS)*2,4G
-    - B:Intel Xeon Processor (Skylake, IBRS)
+    - B:Intel Xeon Processor (Skylake, IBRS)*1,2G
     - 10Gbps上下行带宽
     - 公网IP
 * 系统：Debian 10
@@ -61,7 +61,7 @@
 
 ## 测试数据及总结
 
-### 常用组合性能测试对比
+### 常用组合性能测试对比一
 ---
 
 **所有测试是各种组合配置的性能对比测试,不是吞吐量上限测试.**
@@ -74,7 +74,7 @@
     <--C,inbound(各种协议组合),outbound(freedom)  
     <--D,v2ray inbound(dokodemo-door with TLS),outbound(freedom)+iperf server
   * 所有测试的变量仅在于BC之间的协议配置组合方式
-  * 仅需关注BC协议配置组合方式. (AD负责产生和接收TLS数据及iperf运行,所有测试过程中,AD均不会满载,不会对测试有任何影响)
+  * 仅需关注BC协议配置组合方式. (AD负责产生和接收TLS数据及iperf运行,所有测试过程中,AD均不会满载,不会对测试有任何影响.实际过程中B为满负荷运行)
 
 协议配置组合方式|速率(TLS record=2K)|备注
 --- | --- | ---
@@ -88,15 +88,17 @@ vmess over ws, with TLS	|540 Mbits/sec |前置nginx http分流
 vmess over ws, (aes-128-gcm)	|603 Mbits/sec
 vmess over ws, (chacha20-poly1305)	|590 Mbits/sec
 **v2ray**'trojan over TCP, with TLS	|835 Mbits/sec |对照VLESS over TCP, with TLS
+**v2ray**'trojan over TCP, with XTLS(origin)	|597 Mbits/sec |对照VLESS over TCP, XTLS(origin)
+**v2ray**'trojan over TCP, with XTLS(direct)	|893 Mbits/sec |对照VLESS over TCP, XTLS(direct)
 
   ### 总结
   ---
   1. A-D直连(跳过BC)可视为A-D使用TLS加密数据测试的上限值
   2. VLESS over TCP, no TLS 即常说的裸奔速度
   3. **VLESS over TCP, XTLS(direct) 几乎和裸奔完全一致(必须是4.32.1版本以上的VLESS over TCP, XTLS(direct)才有readV,才可以达到这个性能)**
-  4. XTLS(origin)的速度仍然比较奇怪
-  5. 如果使用v2ray,协议用VLESS还是trojan可认为没有性能区别.
-  6. **v2ray**'trojan也可以用XTLS.(还没有readV)
+  4. XTLS(origin)的速度仍然比较奇怪,不论是VLESS还是trojan.
+  5. 如果使用v2ray,协议用VLESS或者trojan可认为没有性能区别.
+  6. **v2ray**'trojan over TCP, with XTLS(direct),没有readV因此提升性能不明显(且可能因本次测试未限制CPU性能因此提升比例也不如以往XTLS测试明显-性能越低提升越明显)
 ---
 
 ### v2ray路由/VLESS回落/nginx分流性能测试(待测)
