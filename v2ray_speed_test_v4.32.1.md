@@ -98,7 +98,7 @@ vmess over ws, (chacha20-poly1305)	|590 Mbits/sec
   3. **VLESS over TCP, XTLS(direct) 几乎和裸奔完全一致(必须是4.32.1版本以上的VLESS over TCP, XTLS(direct)才有readV,才可以达到这个性能)**
   4. XTLS(origin)的速度仍然比较奇怪,不论是VLESS还是trojan.
   5. 如果使用v2ray,协议用VLESS或者trojan可认为没有性能区别.
-  6. **v2ray**'trojan over TCP, with XTLS(direct),没有readV因此提升性能不明显(且可能因本次测试未限制CPU性能因此提升比例也不如以往XTLS测试明显-性能越低提升越明显)
+  6. **v2ray**'trojan over TCP, with XTLS(direct),没有readV因此提升性能不明显(且可能因本次测试未过多限制CPU性能因此提升比例也不如以往XTLS测试明显-性能越低提升越明显)
 ---
 
 ### v2ray路由/VLESS回落/nginx分流性能测试(待测)
