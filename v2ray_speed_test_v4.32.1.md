@@ -114,6 +114,8 @@ vmess over ws, (chacha20-poly1305)	|  301 Mbits/sec |前置nginx http分流
 **v2ray**'trojan over TCP, with TLS	|  379 Mbits/sec |对照VLESS over TCP, with TLS
 **v2ray**'trojan over TCP, with XTLS(origin)	| 317 Mbits/sec |对照VLESS over TCP, XTLS(origin)
 **v2ray**'trojan over TCP, with XTLS(direct)	|  1974 Mbits/sec |对照VLESS over TCP, XTLS(direct)
+trojan-go	|  1513 Mbits/sec |
+trojan-gfw	|  505 Mbits/sec |
 
   ### 总结
   ---
@@ -150,6 +152,8 @@ vmess over ws, (chacha20-poly1305)	|  301 Mbits/sec |前置nginx http分流
 ## 测试工具
 * iperf 3.6
 * v2ray 4.32.1(with VLESS XTLS readV)
+* trojan-go 0.8.2
+* trojan-gfw 1.16.0
 * nginx openresty/1.17.8.2
 
 ## 测试时间
