@@ -121,7 +121,7 @@ vmess over ws, (chacha20-poly1305)	|  301 Mbits/sec |前置nginx http分流
   2. **VLESS over TCP, XTLS(direct) 仍然和裸奔完全一致(必须是4.32.1版本以上的VLESS over TCP, XTLS(direct)才有readV,才可以达到这个性能)**
   3. 该测试硬件性能整体低于测试一,且进行了硬件性能限制,可以见得,
      - 性能越低VLESS over TCP, XTLS(direct)和其他协议的性能就差距越大.
-  4. 与测试一不同, 此组数据的**v2ray**'trojan over TCP, with XTLS(direct)与VLESS一致,因为我加了~~洋葱~~readV.(**v4.32.1并不存在此特性,见测试一数据**)
+  4. 与测试一不同, 此组数据的**v2ray**'trojan over TCP, with XTLS(direct)与VLESS一致,因为我加了~~洋葱~~readV.(**v4.32.1中还未加入此特性,见测试一数据**)
   5. vmess over TCP, (aes-128-gcm)/(chacha20-poly1305)较其他vmess组合速率较高是因为他们也具有readV优化.
   6. 实测开启v2ray内置的流量统计会使所有的readV失效(性能损失一半),并且额外受到约15%的性能打击(该测试硬件基础上)
 
