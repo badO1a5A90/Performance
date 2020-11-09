@@ -43,7 +43,51 @@
 
 ## 测试数据及总结
 
-### 常用组合性能测试对比一
+### 常用组合性能测试对比二(20201109)
+---
+* **这组数据与测试一的硬件以及CPU限制不同,没有对比参照的意义**
+* **各种组合配置的速率测试是性能对比测试,不是吞吐量上限测试.**
+* 数据流向及说明
+  * 与测试一相同
+* 所有测试的变量仅在于BC之间的协议配置组合方式
+* 仅需关注BC协议配置组合方式. 
+  * AD负责产生和接收TLS数据及iperf运行,所有测试过程中,AD均不会满载,不会对测试有任何影响.
+  * 实际测试过程中B为满负荷运行
+* B的CPU限制,使用cgroup精确限制在50%.
+* trojan-go/trojan-gfw的测试即把BC的客户端和服务端程序替换为trojan-go/trojan-gfw,其余不变.
+
+协议配置组合方式|速率(TLS record=2K)|备注
+--- | --- | ---
+A-D直连(跳过BC)|	2534 Mbits/sec|仅用于对照
+无协议(dokodemo-door+freedom)|	 2030   Mbits/sec |仅用于对照
+VLESS over TCP, no TLS	|  1999  Mbits/sec|仅用于对照,裸奔
+VLESS over TCP, with TLS	|379 Mbits/sec 
+VLESS over TCP, XTLS(origin)	| 319 Mbits/sec
+**VLESS over TCP, XTLS(direct)**	|**1962 Mbits/sec**
+vmess over TCP, with TLS	| 328   Mbits/sec 
+vmess over TCP, (aes-128-gcm)	| 795 Mbits/sec
+vmess over TCP, (chacha20-poly1305)	| 797 Mbits/sec
+vmess over ws, with TLS	| 254 Mbits/sec |前置nginx http分流
+vmess over ws, (aes-128-gcm)	| 300 Mbits/sec |前置nginx http分流
+vmess over ws, (chacha20-poly1305)	|  301 Mbits/sec |前置nginx http分流
+**v2ray**'trojan over TCP, with TLS	|  379 Mbits/sec |对照VLESS over TCP, with TLS
+**v2ray**'trojan over TCP, with XTLS(origin)	| 317 Mbits/sec |对照VLESS over TCP, XTLS(origin)
+**v2ray**'trojan over TCP, with XTLS(direct)	|  1974 Mbits/sec |对照VLESS over TCP, XTLS(direct)
+trojan-go	|  1513 Mbits/sec |
+trojan-gfw	|  505 Mbits/sec |
+
+  ### 总结
+  ---
+  1. 虽然硬件及限制不同,但测试一中的结论仍然都成立.(参见下方测试一数据和结论)
+  2. **VLESS over TCP, XTLS(direct) 仍然和裸奔完全一致(必须是4.32.1版本以上的VLESS over TCP, XTLS(direct)才有readV,才可以达到这个性能)**
+  3. 该测试硬件性能整体低于测试一,且进行了硬件性能限制,可以见得,
+     - 性能越低VLESS over TCP, XTLS(direct)和其他协议的性能就差距越大.
+  4. 与测试一不同, 此组数据的**v2ray**'trojan over TCP, with XTLS(direct)与VLESS一致,因为我加了~~洋葱~~readV.(**v4.32.1中还未加入此特性,见测试一数据**)
+  5. vmess over TCP, (aes-128-gcm)/(chacha20-poly1305)较其他vmess组合速率较高是因为他们也具有readV优化.
+  6. 实测开启v2ray内置的流量统计会使所有的readV失效(性能损失一半),并且额外受到约15%的性能打击(该测试硬件基础上)
+---
+
+### 常用组合性能测试对比一(20201107)
 ---
 
 * **各种组合配置的速率测试是性能对比测试,不是吞吐量上限测试.**
@@ -85,47 +129,6 @@ vmess over ws, (chacha20-poly1305)	|590 Mbits/sec
   6. **v2ray**'trojan over TCP, with XTLS(direct),没有readV因此提升性能不明显(且可能因本次测试未过多限制CPU性能,因此提升比例也不如以往XTLS测试明显-性能越低提升越明显)
 ---
 
-### 常用组合性能测试对比二
----
-* **!!!这组数据与测试一硬件以及CPU限制不同,没有对比参照的意义!!!**
-* **各种组合配置的速率测试是性能对比测试,不是吞吐量上限测试.**
-* 数据流向及说明
-  * 与测试一相同
-* 所有测试的变量仅在于BC之间的协议配置组合方式
-* 仅需关注BC协议配置组合方式. 
-  * AD负责产生和接收TLS数据及iperf运行,所有测试过程中,AD均不会满载,不会对测试有任何影响.
-  * 实际测试过程中B为满负荷运行
-* B的CPU限制,使用cgroup精确限制在50%.
-
-协议配置组合方式|速率(TLS record=2K)|备注
---- | --- | ---
-A-D直连(跳过BC)|	2534 Mbits/sec|仅用于对照
-无协议(dokodemo-door+freedom)|	 2030   Mbits/sec |仅用于对照
-VLESS over TCP, no TLS	|  1999  Mbits/sec|仅用于对照,裸奔
-VLESS over TCP, with TLS	|379 Mbits/sec 
-VLESS over TCP, XTLS(origin)	| 319 Mbits/sec
-**VLESS over TCP, XTLS(direct)**	|**1962 Mbits/sec**
-vmess over TCP, with TLS	| 328   Mbits/sec 
-vmess over TCP, (aes-128-gcm)	| 795 Mbits/sec
-vmess over TCP, (chacha20-poly1305)	| 797 Mbits/sec
-vmess over ws, with TLS	| 254 Mbits/sec |前置nginx http分流
-vmess over ws, (aes-128-gcm)	| 300 Mbits/sec |前置nginx http分流
-vmess over ws, (chacha20-poly1305)	|  301 Mbits/sec |前置nginx http分流
-**v2ray**'trojan over TCP, with TLS	|  379 Mbits/sec |对照VLESS over TCP, with TLS
-**v2ray**'trojan over TCP, with XTLS(origin)	| 317 Mbits/sec |对照VLESS over TCP, XTLS(origin)
-**v2ray**'trojan over TCP, with XTLS(direct)	|  1974 Mbits/sec |对照VLESS over TCP, XTLS(direct)
-trojan-go	|  1513 Mbits/sec |
-trojan-gfw	|  505 Mbits/sec |
-
-  ### 总结
-  ---
-  1. 虽然硬件及限制不同,但测试一中的结论仍然都成立.
-  2. **VLESS over TCP, XTLS(direct) 仍然和裸奔完全一致(必须是4.32.1版本以上的VLESS over TCP, XTLS(direct)才有readV,才可以达到这个性能)**
-  3. 该测试硬件性能整体低于测试一,且进行了硬件性能限制,可以见得,
-     - 性能越低VLESS over TCP, XTLS(direct)和其他协议的性能就差距越大.
-  4. 与测试一不同, 此组数据的**v2ray**'trojan over TCP, with XTLS(direct)与VLESS一致,因为我加了~~洋葱~~readV.(**v4.32.1中还未加入此特性,见测试一数据**)
-  5. vmess over TCP, (aes-128-gcm)/(chacha20-poly1305)较其他vmess组合速率较高是因为他们也具有readV优化.
-  6. 实测开启v2ray内置的流量统计会使所有的readV失效(性能损失一半),并且额外受到约15%的性能打击(该测试硬件基础上)
 
 ### v2ray路由/VLESS回落/nginx分流性能测试(待测)
 
