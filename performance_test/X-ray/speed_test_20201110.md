@@ -46,6 +46,7 @@ VLESS over TCP, XTLS(direct)	|1511 Mbits/sec|	2013 Mbits/sec
 **v2ray**'trojan over TCP, with TLS	|  300 Mbits/sec|	850 Mbits/sec |
 **v2ray**'trojan over TCP, with XTLS(origin)	| 287 Mbits/sec|	445 Mbits/sec |
 **v2ray**'trojan over TCP, with XTLS(direct)	|  1480 Mbits/sec|	2002 Mbits/sec |
+**direct,no readV**	|  390 Mbits/sec|	1672 Mbits/sec |
 vmess over TCP, with TLS	| 271   Mbits/sec |failed
 vmess over TCP, (aes-128-gcm)	| 637 Mbits/sec|	928 Mbits/sec
 vmess over TCP, (chacha20-poly1305)	| 617 Mbits/sec|	929 Mbits/sec
@@ -64,7 +65,15 @@ trojan-gfw	|  -|	- |
   4. 之前测试fallback和dokodemo-door性能几乎一致的结论在Xray中被推翻了.测试触发了C满负载,似乎可以接近AD直连?
   5. direct模式始终稳定和裸奔一致,包括提升.
   6. origin依然比较奇怪,表现和record size相关,待补充16K数据.(似乎仅origin受record size影响)
-  7. 似乎trojan-go并没有显得那么强了...
+  7. direct,no readV 对照组比较有意思...
+       - 去掉TLS解密
+          - 去掉解密是有意义的,有性能提升.(v2ray30%,Xray100%.)
+          - Xray去掉解密的性能提升被明显放大了
+          - 去掉解密+readV达到了裸奔上限
+     - readV
+       - v2ray中,对比有无readV的direct,readV的性能提升能力似乎达到了3倍,在[v4.32.1版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/master/v2ray_speed_test_v4.32.1.md)的测试一中也有一组数据可以参考(测试一中,VLESS direct 带readV,trojan direct不带readV,两项也接近3倍,且VLESS direct已到上限)
+       - Xray中,因为去掉解密的性能提升明显放大,达到了裸奔上限,readV的实际提升无法对比.
+  8. 似乎trojan-go并没有显得那么强了...
 ---
 
 ## 测试环境
