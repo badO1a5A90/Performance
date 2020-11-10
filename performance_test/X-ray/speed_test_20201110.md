@@ -35,26 +35,26 @@
 * trojan-go的测试即把BC的客户端和服务端程序替换为trojan-go,其余不变.
 * only once test.
 
-协议配置组合方式|v2ray速率(TLS record=2K)|Xray速率(TLS record=2K)|备注
---- | --- | ---| ---
-A-D直连(跳过BC)|	2958 Mbits/sec|	3037 Mbits/sec|仅用于对照
-无协议(dokodemo-door+freedom)|	 1524   Mbits/sec|	2036 Mbits/sec |仅用于对照
-VLESS over TCP, no TLS	|  1552  Mbits/sec|	2044 Mbits/sec|仅用于对照,裸奔
-VLESS over TCP, with TLS	|307 Mbits/sec |	867 Mbits/sec
-VLESS over TCP, XTLS(origin)	| 284 Mbits/sec|	471 Mbits/sec
-VLESS over TCP, XTLS(direct)	|1511 Mbits/sec|	2013 Mbits/sec
-**v2ray**'trojan over TCP, with TLS	|  300 Mbits/sec|	850 Mbits/sec |
-**v2ray**'trojan over TCP, with XTLS(origin)	| 287 Mbits/sec|	445 Mbits/sec |
-**v2ray**'trojan over TCP, with XTLS(direct)	|  1480 Mbits/sec|	2002 Mbits/sec |
-**direct,no readV**	|  390 Mbits/sec|	1672 Mbits/sec |
-vmess over TCP, with TLS	| 271   Mbits/sec |failed
-vmess over TCP, (aes-128-gcm)	| 637 Mbits/sec|	928 Mbits/sec
-vmess over TCP, (chacha20-poly1305)	| 617 Mbits/sec|	929 Mbits/sec
-vmess over ws, with TLS	| 215 Mbits/sec |failed|	前置nginx http分流
-vmess over ws, (aes-128-gcm)	| 256 Mbits/sec|	failed |前置nginx http分流
-vmess over ws, (chacha20-poly1305)	|  262 Mbits/sec|	failed |前置nginx http分流
-fallback	|  1680 Mbits/sec|	2799 Mbits/sec |2799非上限,C满载了
-trojan-go	|  894 Mbits/sec|	878 Mbits/sec | (浮动而已)
+协议配置组合方式|v2ray速率(TLS record=2K)|Xray速率(TLS record=2K)|Xray速率(TLS record=16K)|备注
+--- | --- | ---| ---| ---
+A-D直连(跳过BC)|	2958 Mbits/sec|	3037 Mbits/sec|6279 Mbits/sec|仅用于对照
+无协议(dokodemo-door+freedom)|	 1524   Mbits/sec|	2036 Mbits/sec |2106 Mbits/sec|仅用于对照
+VLESS over TCP, no TLS	|  1552  Mbits/sec|	2044 Mbits/sec|2155 Mbits/sec|仅用于对照,裸奔
+VLESS over TCP, with TLS	|307 Mbits/sec |	867 Mbits/sec|848 Mbits/sec|
+VLESS over TCP, XTLS(origin)	| 284 Mbits/sec|	471 Mbits/sec|1396 Mbits/sec|
+VLESS over TCP, XTLS(direct)	|1511 Mbits/sec|	2013 Mbits/sec|2067 Mbits/sec|
+**v2ray**'trojan over TCP, with TLS	|  300 Mbits/sec|	850 Mbits/sec |815 Mbits/sec|
+**v2ray**'trojan over TCP, with XTLS(origin)	| 287 Mbits/sec|	445 Mbits/sec |1312 Mbits/sec|
+**v2ray**'trojan over TCP, with XTLS(direct)	|  1480 Mbits/sec|	2002 Mbits/sec |2040 Mbits/sec|
+**direct,no readV**	|  390 Mbits/sec|	1672 Mbits/sec |-|-
+vmess over TCP, with TLS	| 271   Mbits/sec |failed|failed|
+vmess over TCP, (aes-128-gcm)	| 637 Mbits/sec|	928 Mbits/sec|1011 Mbits/sec|
+vmess over TCP, (chacha20-poly1305)	| 617 Mbits/sec|	929 Mbits/sec|987 Mbits/sec|
+vmess over ws, with TLS	| 215 Mbits/sec |failed|failed |	前置nginx http分流
+vmess over ws, (aes-128-gcm)	| 256 Mbits/sec|	failed |failed|前置nginx http分流
+vmess over ws, (chacha20-poly1305)	|  262 Mbits/sec|	failed |failed|前置nginx http分流
+fallback	|  1680 Mbits/sec|	2799 Mbits/sec |2459 Mbits/sec|非上限,C都满载了
+trojan-go	|  894 Mbits/sec|	878 Mbits/sec |918 Mbits/sec|
 trojan-gfw	|  -|	- |
 
   ### 总结
@@ -64,7 +64,7 @@ trojan-gfw	|  -|	- |
   3. Xray有4项失败,原因待查.
   4. 之前测试fallback和dokodemo-door性能几乎一致的结论在Xray中被推翻了.测试触发了C满负载,似乎可以接近AD直连?
   5. direct模式始终稳定和裸奔一致,包括提升.
-  6. origin依然比较奇怪,表现和record size相关,待补充16K数据.(也没什么必要).(似乎仅origin受record size影响)
+  6. origin依然比较奇怪,表现和record size相关.(似乎仅origin受record size影响)
   7. direct,no readV 对照组比较有意思...
        - 去掉TLS解密
           - 去掉解密是有意义的,有性能提升.(v2ray30%,Xray100%.)
