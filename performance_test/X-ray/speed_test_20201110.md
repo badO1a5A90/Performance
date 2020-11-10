@@ -72,7 +72,7 @@ trojan-gfw	|  -|	- |
           - 去掉解密+readV达到了裸奔上限
      - readV
        - v2ray中,对比有无readV的direct,readV的性能提升能力似乎达到了3倍,在[v4.32.1版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/master/v2ray_speed_test_v4.32.1.md)的测试一中也有一组数据可以参考(测试一中,VLESS direct 带readV,trojan direct不带readV,两项也接近3倍,且VLESS direct已到上限)
-       - Xray中,因为去掉解密的性能提升明显放大,达到了裸奔上限,readV的实际提升无法对比.
+       - Xray中,因为去掉解密的性能提升明显放大,带readV后达到了裸奔上限,readV的实际提升无法对比.
   8. 似乎trojan-go并没有显得那么强了...
 ---
 
