@@ -64,7 +64,7 @@ trojan-gfw	|  -|	- |
   3. Xray有4项失败,原因待查.
   4. 之前测试fallback和dokodemo-door性能几乎一致的结论在Xray中被推翻了.测试触发了C满负载,似乎可以接近AD直连?
   5. direct模式始终稳定和裸奔一致,包括提升.
-  6. origin依然比较奇怪,表现和record size相关,待补充16K数据.(似乎仅origin受record size影响)
+  6. origin依然比较奇怪,表现和record size相关,待补充16K数据.(也没什么必要).(似乎仅origin受record size影响)
   7. direct,no readV 对照组比较有意思...
        - 去掉TLS解密
           - 去掉解密是有意义的,有性能提升.(v2ray30%,Xray100%.)
