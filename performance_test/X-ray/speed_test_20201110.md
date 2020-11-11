@@ -77,6 +77,51 @@ trojan-gfw	|  -|	- |
   8. 似乎trojan-go并没有显得那么强了...
 ---
 
+### 常用组合性能测试对比二(20201111)
+
+* 数据为speedtest实测数据
+* 服务器为树莓派,客户端为PC
+* PC通过树莓派的v2ray服务端上网,并使用speedtest测试.
+
+---
+Xray：
+
+vless+xtls+readv (server + client) enabled READV
+第1次462.83 / 第2次462.92 / 第3次461.88
+
+vless+tls+tcp
+第1次436.19 / 第2次440.19 /第3次424.45
+
+vmess+tls+tcp
+第1次456.64 / 第2次455.14 / 第3次450.19
+
+vless+ws+tls 
+第1次301.73 / 第2次303.99 / 第3次300.51
+
+vmess+ws+tls
+第1次297.01 / 第2次298.28 / 第3次292.45
+
+========================
+
+v2ray：
+
+vless+xtls+readv (server + client) enabled READV
+第1次461.60 / 第2次461.41 / 第3次457.09
+
+vless+tls+tcp
+第1次315.19 / 第2次298.47 /第3次289.50
+
+vmess+tls+tcp
+第1次262.64 / 第2次262.44 / 第3次257.51
+
+vless+ws+tls 
+第1次276.87 / 第2次278.97 / 第3次280.82
+
+vmess+ws+tls
+第1次273.02 / 第2次267.15 / 第3次287.18
+
+----
+
 ## 测试环境
 * 测试一
   * 四台VPS：
@@ -86,7 +131,11 @@ trojan-gfw	|  -|	- |
       - 公网IP
   * 系统：Debian 10
   * 所有机器均支持 AES-NI 硬件加速指令集
-
+* 测试二
+  * 树莓派为服务器
+  * 带宽1G
+  * 公网IP
+  
 ## 测试工具
 * iperf 3.6
 * v2ray 4.32.1(with VLESS XTLS readV)
