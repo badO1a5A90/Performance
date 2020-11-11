@@ -35,26 +35,26 @@
 * trojan-go的测试即把BC的客户端和服务端程序替换为trojan-go,其余不变.
 * only once test.
 
-协议配置组合方式|v2ray速率(TLS record=2K)|Xray速率(TLS record=2K)|Xray速率(TLS record=16K)|备注
---- | --- | ---| ---| ---
-A-D直连(跳过BC)|	2958 Mbits/sec|	3037 Mbits/sec|6279 Mbits/sec|仅用于对照
-无协议(dokodemo-door+freedom)|	 1524   Mbits/sec|	2036 Mbits/sec |2106 Mbits/sec|仅用于对照
-VLESS over TCP, no TLS	|  1552  Mbits/sec|	2044 Mbits/sec|2155 Mbits/sec|仅用于对照,裸奔
-VLESS over TCP, with TLS	|307 Mbits/sec |	867 Mbits/sec|848 Mbits/sec|
-VLESS over TCP, XTLS(origin)	| 284 Mbits/sec|	471 Mbits/sec|1396 Mbits/sec|
-VLESS over TCP, XTLS(direct)	|1511 Mbits/sec|	2013 Mbits/sec|2067 Mbits/sec|
-**v2ray**'trojan over TCP, with TLS	|  300 Mbits/sec|	850 Mbits/sec |815 Mbits/sec|
-**v2ray**'trojan over TCP, with XTLS(origin)	| 287 Mbits/sec|	445 Mbits/sec |1312 Mbits/sec|
-**v2ray**'trojan over TCP, with XTLS(direct)	|  1480 Mbits/sec|	2002 Mbits/sec |2040 Mbits/sec|
-**direct,no readV**	|  390 Mbits/sec|	1672 Mbits/sec |-|-
-vmess over TCP, with TLS	| 271   Mbits/sec |failed|failed|
-vmess over TCP, (aes-128-gcm)	| 637 Mbits/sec|	928 Mbits/sec|1011 Mbits/sec|
-vmess over TCP, (chacha20-poly1305)	| 617 Mbits/sec|	929 Mbits/sec|987 Mbits/sec|
-vmess over ws, with TLS	| 215 Mbits/sec |failed|failed |	前置nginx http分流
-vmess over ws, (aes-128-gcm)	| 256 Mbits/sec|	failed |failed|前置nginx http分流
-vmess over ws, (chacha20-poly1305)	|  262 Mbits/sec|	failed |failed|前置nginx http分流
-fallback	|  1680 Mbits/sec|	2799 Mbits/sec |2459 Mbits/sec|非上限,C都满载了
-trojan-go	|  894 Mbits/sec|	878 Mbits/sec |918 Mbits/sec|
+协议配置组合方式|v2ray速率(TLS record=2K)|Xray速率1(TLS record=2K)|Xray速率2(TLS record=2K)|Xray速率(TLS record=16K)|备注
+--- | --- | ---| ---| ---|---
+A-D直连(跳过BC)|	2958 Mbits/sec|2851 Mbits/sec|	3037 Mbits/sec|6279 Mbits/sec|仅用于对照
+无协议(dokodemo-door+freedom)|	 1524   Mbits/sec|1951 Mbits/sec|	2036 Mbits/sec |2106 Mbits/sec|仅用于对照
+VLESS over TCP, no TLS	|  1552  Mbits/sec|1947 Mbits/sec|	2044 Mbits/sec|2155 Mbits/sec|仅用于对照,裸奔
+VLESS over TCP, with TLS	|307 Mbits/sec|607 Mbits/sec |	867 Mbits/sec|848 Mbits/sec|
+VLESS over TCP, XTLS(origin)	| 284 Mbits/sec|417 Mbits/sec|	471 Mbits/sec|1396 Mbits/sec|
+VLESS over TCP, XTLS(direct)	|1511 Mbits/sec|1874 Mbits/sec|	2013 Mbits/sec|2067 Mbits/sec|
+**v2ray**'trojan over TCP, with TLS	|  300 Mbits/sec|600 Mbits/sec|	850 Mbits/sec |815 Mbits/sec|
+**v2ray**'trojan over TCP, with XTLS(origin)	| 287 Mbits/sec|420 Mbits/sec|	445 Mbits/sec |1312 Mbits/sec|
+**v2ray**'trojan over TCP, with XTLS(direct)	|  1480 Mbits/sec|1875 Mbits/sec|	2002 Mbits/sec |2040 Mbits/sec|
+**direct,no readV**	|  390 Mbits/sec|-|	1672 Mbits/sec |-|-
+vmess over TCP, with TLS	| 271   Mbits/sec|539 Mbits/sec |failed|failed|
+vmess over TCP, (aes-128-gcm)	| 637 Mbits/sec|801 Mbits/sec|	928 Mbits/sec|1011 Mbits/sec|
+vmess over TCP, (chacha20-poly1305)	| 617 Mbits/sec|841 Mbits/sec|	929 Mbits/sec|987 Mbits/sec|
+vmess over ws, with TLS	| 215 Mbits/sec|313 Mbits/sec |failed|failed |	前置nginx http分流
+vmess over ws, (aes-128-gcm)	| 256 Mbits/sec|496 Mbits/sec|	failed |failed|前置nginx http分流
+vmess over ws, (chacha20-poly1305)	|  262 Mbits/sec|488 Mbits/sec|	failed |failed|前置nginx http分流
+fallback	|  1680 Mbits/sec|2321 Mbits/sec|	2799 Mbits/sec |2459 Mbits/sec|非上限,C都满载了
+trojan-go	|  894 Mbits/sec|918 Mbits/sec|	878 Mbits/sec |918 Mbits/sec|
 trojan-gfw	|  -|	- |
 
   ### 总结
