@@ -82,6 +82,7 @@ trojan-gfw	|  -|	- |
 * 数据为speedtest实测数据
 * 服务器为树莓派,客户端为PC
 * PC通过树莓派的v2ray服务端上网,并使用speedtest测试.
+* 来自TG群网友的测试
 
 ---
 Xray：
