@@ -84,7 +84,8 @@ trojan-gfw	|  505 Mbits/sec |
      - 硬件性能越低VLESS over TCP, XTLS(direct)和其他协议的性能差距就越大.
   4. 与测试一不同, 此组数据的**v2ray**'trojan over TCP, with XTLS(direct)与VLESS一致,因为我加了~~洋葱~~readV.(**v4.32.1中并无此特性,见测试一数据**)
   5. vmess over TCP, (aes-128-gcm)/(chacha20-poly1305)较其他vmess组合速率较高是因为他们也具有readV优化.
-  6. 实测开启v2ray内置的流量统计会使所有的readV失效(性能损失一半),并且额外受到约15%的性能打击(该测试硬件基础上)
+  6. ~~实测开启v2ray内置的流量统计会使所有的readV失效(性能损失一半),并且额外受到约15%的性能打击(该测试硬件基础上)~~
+  7. 经过更多实测和代码分析后,确定v2ray的流量统计功能会使裸协议的 ReadV 和 WriteV 同时失效(性能损失一半以上),具体参见[issue#416](https://github.com/v2fly/v2ray-core/issues/416)
 ---
 
 ### 常用组合性能测试对比一(20201107)

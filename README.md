@@ -2,6 +2,10 @@
 v2ray推荐使用模式和性能测试,及一些针对性性能测试.
 trojan-go,trojan-gfw性能测试.
 
+# update 20201116
+- 经过更多实测和代码分析后,确定v2ray 的流量统计功能会使裸协议的 ReadV 和 WriteV 同时失效(除特殊机制外)
+- 具体参见[issue#416](https://github.com/v2fly/v2ray-core/issues/416)
+
 # update 20201109
 增加v4.32.1一组新测试数据(不同硬件及性能限制),同时此组数据增加了vmess over TCP的各种组合测试对照.   
 增加trojan-go和trojan-gfw的测试数据.
@@ -10,7 +14,7 @@ trojan-go,trojan-gfw性能测试.
 
   新的测试数据可以验证 XTLS Direct Mode 性能与无加密裸奔持平.
 - 硬件性能越低,VLESS XTLS Direct Mode性能提升越明显.
-- 实测开启v2ray内置的流量统计会使所有的readV失效(性能损失一半),并且受到额外性能打击
+- ~~实测开启v2ray内置的流量统计会使所有的readV失效(性能损失一半),并且受到额外性能打击~~
 
 
 # update 20201108
