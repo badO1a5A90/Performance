@@ -14,7 +14,7 @@ trojan-go,trojan-gfw性能测试.
 
   新的测试数据可以验证 XTLS Direct Mode 性能与无加密裸奔持平.
 - 硬件性能越低,VLESS XTLS Direct Mode性能提升越明显.
-~~- 实测开启v2ray内置的流量统计会使所有的readV失效,并且受到额外性能打击~~
+- ~~实测开启v2ray内置的流量统计会使所有的readV失效,并且受到额外性能打击~~
 
 
 # update 20201108
