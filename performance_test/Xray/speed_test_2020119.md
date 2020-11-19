@@ -63,7 +63,6 @@ shadowsocks-libev(aes-128-cfb)	|  405   |-|
 * PC通过树莓派的v2ray服务端上网,并使用speedtest测试.
 
 ---
-Xray：
 
 协议配置组合方式|v2ray速率(Mbps)|Xray速率(Mbps)
 --- | ---| --- 
