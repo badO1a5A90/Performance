@@ -40,6 +40,10 @@ vmess over ws, with TLS	| 239  |373|前置nginx http分流
 vmess over ws, (aes-128-gcm)	| 255  |598|前置nginx http分流
 vmess over ws, (chacha20-poly1305)	|  232  |493|前置nginx http分流
 trojan-go	|  1409   |-|
+trojan-gfw	|  505  |
+go-shadowsocks2+outline(aes-128-gcm)	|  1256   |-|
+shadowsocks-rust(aes-128-cfb)	|  394   |-|
+shadowsocks-libev(aes-128-cfb)	|  405   |-|
 
 ![avatar](https://raw.githubusercontent.com/badO1a5A90/v2ray-doc/main/performance_test/Xray/img/xray20201119.jpg)
 

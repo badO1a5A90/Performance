@@ -75,6 +75,9 @@ vmess over ws, (chacha20-poly1305)	|  232 Mbits/sec |前置nginx http分流
 **v2ray**'trojan over TCP, with XTLS(direct)	|  1974 Mbits/sec |对照VLESS over TCP, XTLS(direct)
 trojan-go	|  1513 Mbits/sec |
 trojan-gfw	|  505 Mbits/sec |
+go-shadowsocks2+outline(aes-128-gcm)	|  1256 Mbits/sec  |-|
+shadowsocks-rust(aes-128-cfb)	|  394 Mbits/sec   |-|
+shadowsocks-libev(aes-128-cfb)	|  405 Mbits/sec  |-|
 
   ### 总结
   ---
