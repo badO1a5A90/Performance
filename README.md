@@ -2,6 +2,10 @@
 v2ray推荐使用模式和性能测试,及一些针对性性能测试.
 trojan-go,trojan-gfw性能测试.
 
+# update 20201119
+- 增加Xray和v2ray的[对比测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_2020119.md).
+- 增加ss各种实现的测试数据.
+
 # update 20201116
 - 经过更多实测和代码分析后,确定v2ray 的流量统计功能会使裸协议的 ReadV 和 WriteV 同时失效(除特殊机制外)
 - 具体参见[issue#416](https://github.com/v2fly/v2ray-core/issues/416)
