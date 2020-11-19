@@ -65,11 +65,11 @@ VLESS over TCP, with TLS	|379 Mbits/sec
 VLESS over TCP, XTLS(origin)	| 319 Mbits/sec
 **VLESS over TCP, XTLS(direct)**	|**1962 Mbits/sec**
 vmess over TCP, with TLS	| 328   Mbits/sec 
-vmess over TCP, (aes-128-gcm)	| 795 Mbits/sec
-vmess over TCP, (chacha20-poly1305)	| 797 Mbits/sec
+vmess over TCP, (aes-128-gcm)	| 829 Mbits/sec
+vmess over TCP, (chacha20-poly1305)	| 684 Mbits/sec
 vmess over ws, with TLS	| 254 Mbits/sec |前置nginx http分流
-vmess over ws, (aes-128-gcm)	| 300 Mbits/sec |前置nginx http分流
-vmess over ws, (chacha20-poly1305)	|  301 Mbits/sec |前置nginx http分流
+vmess over ws, (aes-128-gcm)	| 255 Mbits/sec |前置nginx http分流
+vmess over ws, (chacha20-poly1305)	|  232 Mbits/sec |前置nginx http分流
 **v2ray**'trojan over TCP, with TLS	|  379 Mbits/sec |对照VLESS over TCP, with TLS
 **v2ray**'trojan over TCP, with XTLS(origin)	| 317 Mbits/sec |对照VLESS over TCP, XTLS(origin)
 **v2ray**'trojan over TCP, with XTLS(direct)	|  1974 Mbits/sec |对照VLESS over TCP, XTLS(direct)
