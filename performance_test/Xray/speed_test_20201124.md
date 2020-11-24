@@ -28,7 +28,7 @@
 * 非v2ray的测试即把BC的客户端和服务端程序替换为其他工具,其余不变.
 * 每项单次测试50S,多次测试取均值.
 
-协议配置组合方式|v2ray v4.32.1速率(Mbps)|v2ray v4.33.0速率(Mbps)|Xray速率(Mbps)|备注
+协议配置组合方式|v2ray v4.32.1速率(Mbps)|v2ray v4.33.0速率(Mbps)|Xray v1.0.0速率(Mbps)|备注
 --- | ---| --- |  --- |---
 VLESS over TCP, no TLS	|  1936  | 1891  |2336|仅用于对照,裸奔
 VLESS over TCP, XTLS(direct)	|1873 | - | 2132
