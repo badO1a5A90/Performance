@@ -55,8 +55,7 @@ shadowsocks-libev(aes-128-cfb)	|  405   |-|
       * 除vmess(加密)的性能经过反复测试,应以本次为准,需要对之前测试做一个勘误.
   2. 因为主要用于对比测试,所以模式选取较少,其他性能皆可参照[v4.32.1版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/master/v2ray_speed_test_v4.32.1.md)  
   3. Xray所有的性能都得到了大幅提升.
-  4. direct模式始终稳定和裸奔一致,包括提升.
-  5. ~~可能还会增加ss等对比~~
+  4. direct模式始终稳定和裸奔基本一致.
 ---
 
 ### 常用组合性能测试对比二
@@ -66,7 +65,6 @@ shadowsocks-libev(aes-128-cfb)	|  405   |-|
 * PC通过树莓派的v2ray服务端上网,并使用speedtest测试.
 
 ---
-Xray：
 
 协议配置组合方式|v2ray速率(Mbps)|Xray速率(Mbps)
 --- | ---| --- 
