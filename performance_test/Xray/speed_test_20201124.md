@@ -50,7 +50,7 @@ shadowsocks-libev(aes-128-cfb)	|  405   |-|
   ### 总结
   --- 
   1. 因为硬件基本一致,所以v2ray速率表现,和[v4.32.1版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/master/v2ray_speed_test_v4.32.1.md)基本是一致的(整体略低一点点)
-  2. 因为主要用于对比测试,所以模式选取较少,其他性能皆可参照[v4.32.1版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/master/v2ray_speed_test_v4.32.1.md)  
+  2. 因为主要用于对比测试,所以模式选取较少,其他组合的性能皆可参考[v4.32.1版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/master/v2ray_speed_test_v4.32.1.md)  
   3. Xray所有的性能都得到了大幅提升.
   4. direct模式始终稳定和裸奔基本一致.
   5. trojan和ss,及v2ray v4.32.1的数据取自[20201119](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_2020119.md)的测试.
