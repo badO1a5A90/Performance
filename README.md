@@ -2,6 +2,9 @@
 v2ray推荐使用模式和性能测试,及一些针对性性能测试.
 trojan-go,trojan-gfw性能测试.
 
+# update 20201124
+- 增加[Xray v1.0.0的性能对比测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201124.md)
+  
 # update 20201119
 - 增加Xray和v2ray的[对比测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_2020119.md).
 - 增加ss各种实现的测试数据.
