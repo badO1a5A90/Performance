@@ -4,7 +4,7 @@ trojan-go,trojan-gfw,SS各种实现的性能测试.
 
 # update 20201202
 - 增加[Xray v1.1.0的性能对比测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201202.md)
-- splice模式一骑绝尘
+- **splice模式一骑绝尘**
 # update 20201124
 - 增加[Xray v1.0.0的性能对比测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201124.md)
   
