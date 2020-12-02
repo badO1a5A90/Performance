@@ -71,6 +71,7 @@ shadowsocks-libev(aes-128-cfb)	|  405   |-|
     - linux平台,如安卓和路由器,以及用 linux 当桌面等使用场景
     - inbound:目前仅支持任意门/socks/http入站
     - outbound:支持XTLS的协议出站(目前仅VLESS)
+    - 当你的性能瓶颈是客户端时才能发挥作用
 
   
 ---
