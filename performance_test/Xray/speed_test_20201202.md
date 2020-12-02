@@ -30,7 +30,7 @@
 * 每项单次测试50S,多次测试取均值.XTLS
 
 协议配置组合方式|v2ray v4.32.1速率(Mbps)|v2ray v4.33.0速率(Mbps)|Xray v1.1.0速率(Mbps)|备注
---- | ---| --- |  --- |---|---
+--- | ---| --- |  --- |---
 VLESS over TCP, XTLS(splice)	|  -  | -  | 4435 |only Xray v1.1.0
 VLESS over TCP, no TLS	|  1936  | 1891  |2336|仅用于对照,裸奔
 VLESS over TCP, XTLS(direct)	|1873 | - | 2132|v4.33.0 removed XTLS
