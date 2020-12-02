@@ -1,6 +1,6 @@
 # v2ray/trojan性能测试
 v2ray推荐使用模式和性能测试,及一些针对性性能测试.
-trojan-go,trojan-gfw性能测试.
+trojan-go,trojan-gfw,SS 性能测试.
 
 # update 20201124
 - 增加[Xray v1.0.0的性能对比测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201124.md)
