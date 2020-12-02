@@ -11,7 +11,7 @@
 ## 测试内容
 
 * 对比测试各种常用组合方式的性能
-* 本次测试主要加入了splice模式
+* **本次测试主要加入了splice模式**
 
 
 ## 测试数据及总结
@@ -49,19 +49,7 @@ shadowsocks-libev(aes-128-cfb)	|  405   |-|
 
 ![avatar](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/img/xray20201202.png?raw=true)
 
-  ### 总结
-  --- 
-  1. Xray v1.1.0和v1.0.0 除增加splice模式之外,没有额外性能的相关改动,所以除splice模式外,其他测试数据沿用了[Xray v1.0.0版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201124.md)
-  2. 本次测试主要用于对比测试,所以模式选取较少,更多组合的性能皆可参考[v2ray v4.32.1版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/master/v2ray_speed_test_v4.32.1.md)  
-  3. Xray所有的性能大幅提升.
-     - splice模式一骑绝尘.
-     - direct模式始终稳定和裸奔基本一致
-     - 其余组合相对v2ray也有大幅提升
-  4. Xray中使用trojan协议使用XTLS也同样具有readV,性能参考VLESS的组合即可.
-       - v2ray v4.32.1 中的trojan不具有readV
-       - Xray中使用trojan协议并使用XTLS开挂,可能是目前最快的trojan实现.
-  5. v2ray v4.32.1和v4.33.0没有性能的相关改动,基本一致,少许浮动为正常表现.
----
+
   ### 关于splice
   --- 
   - Splice 工作方式：
@@ -75,13 +63,26 @@ shadowsocks-libev(aes-128-cfb)	|  405   |-|
 
   
 ---
+  ### 总结
+  --- 
+  1. Xray v1.1.0和v1.0.0 除增加splice模式之外,没有额外性能的相关改动,所以除splice模式外,其他测试数据沿用了[Xray v1.0.0版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201124.md)
+  2. 本次测试主要用于对比测试,所以模式选取较少,更多组合的性能皆可参考[v2ray v4.32.1版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/master/v2ray_speed_test_v4.32.1.md)  
+  3. Xray所有的性能大幅提升.
+     - splice模式一骑绝尘.
+     - direct模式始终稳定和裸奔基本一致
+     - 其余组合相对v2ray也有大幅提升
+  4. Xray中使用trojan协议使用XTLS也同样具有readV,性能参考VLESS的组合即可.
+       - v2ray v4.32.1 中的trojan不具有readV
+       - Xray中使用trojan协议并使用XTLS开挂,可能是目前最快的trojan实现.
+  5. v2ray v4.32.1和v4.33.0没有性能的相关改动,基本一致,少许浮动为正常表现.
+---
 
 ### 常用组合性能测试对比二
 
 (待补充更多数据)
 可参考 [Xray v1.0.0版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201124.md) 中TG群友提供数据
 
-1. 目前TG群友的路由器测试中看来,在网速相同的情况下(跑到网络带宽上限),CPU的负载约减少至之前的50%左右.
+1. 目前TG群友的路由器测试中,在网速相同的情况下(跑到网络带宽上限),CPU的负载约减少至之前的50%左右.
 
 ---
 ## 测试环境
