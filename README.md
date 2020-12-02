@@ -1,4 +1,4 @@
-# v2ray/trojan性能测试
+# Xray/v2ray/trojan/SS性能测试
 Xray/v2ray推荐使用模式和性能测试,及一些针对性性能测试.  
 trojan-go,trojan-gfw,SS各种实现的性能测试.
 
