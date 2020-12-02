@@ -81,6 +81,8 @@ shadowsocks-libev(aes-128-cfb)	|  405   |-|
 (待补充更多数据)
 可参考 [Xray v1.0.0版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201124.md) 中TG群友提供数据
 
+1. 目前TG群友的路由器测试中看来,在网速相同的情况下(跑到网络带宽上限),CPU的负载约减少至之前的50%左右.
+
 ---
 ## 测试环境
 * 测试一
