@@ -66,12 +66,12 @@ shadowsocks-libev(aes-128-cfb)	|  405   |-|
 ---
   ### 总结
   --- 
-  1. Xray v1.1.1和v1.0.0 除增加splice模式之外,没有额外性能的相关改动,所以除splice模式外,其他测试数据沿用了[Xray v1.0.0版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201124.md)
+  1. Xray v1.1.1 相对于 v1.0.0 除增加splice模式之外,没有额外性能的相关改动,所以除splice模式外,其他测试数据沿用了[Xray v1.0.0版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201124.md)
   2. 本次测试主要用于对比测试,所以模式选取较少,更多组合的性能皆可参考[Xray v1.1.1版本各组合方式性能测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/Xray_test_v1.1.1.md)
   3. Xray所有的性能大幅提升.
      - splice模式一骑绝尘.
-     - direct模式始终稳定和裸奔基本一致
      - 其余组合相对v2ray也有大幅提升
+     - direct模式始终稳定和裸奔基本一致     
   4. Xray中使用trojan协议使用XTLS也同样具有readV,性能参考VLESS的组合即可.
        - v2ray v4.32.1 中的trojan不具有readV
        - Xray中使用trojan协议并使用XTLS开挂,可能是目前最快的trojan实现.
