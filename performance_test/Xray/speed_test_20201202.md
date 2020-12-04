@@ -5,13 +5,14 @@
 * XTLS的相关测试中,XTLS已经100%处理原始TLS加密流量.
 
 ## 测试方式
-* 与以往一致,4VPS模式,具体可参见[v4.32.1版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/master/v2ray_speed_test_v4.32.1.md)中的详细描述.
+* 与以往一致,4VPS模式,具体可参见[测试方式](https://github.com/badO1a5A90/v2ray-doc/blob/main/Xray_test_v1.1.1.md#测试方式)中的详细描述.
 
 
 ## 测试内容
 
 * 对比测试各种常用组合方式的性能
 * **本次测试主要加入了splice模式**
+* 本次测试主要用于对比测试,所以模式选取较少,更多组合的性能皆可参考[Xray v1.1.1版本各组合方式性能测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/Xray_test_v1.1.1.md)
 
 
 ## 测试数据及总结
@@ -20,7 +21,7 @@
 ---
 
 * 数据流向及说明
-  * 4VPS模式(可参见[v4.32.1版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/master/v2ray_speed_test_v4.32.1.md)中的详细描述)
+  * 4VPS模式(可参见[这里具体说明](https://github.com/badO1a5A90/v2ray-doc/blob/main/Xray_test_v1.1.1.md#%E5%B8%B8%E7%94%A8%E7%BB%84%E5%90%88%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%AF%B9%E6%AF%94))
 * 所有测试的变量仅在于BC之间的协议配置组合方式
 * 仅需关注BC协议配置组合方式. 
   * AD负责产生和接收TLS数据及iperf运行,所有测试过程中,AD均不会满载,不会对测试有任何影响.
@@ -66,7 +67,7 @@ shadowsocks-libev(aes-128-cfb)	|  405   |-|
   ### 总结
   --- 
   1. Xray v1.1.0和v1.0.0 除增加splice模式之外,没有额外性能的相关改动,所以除splice模式外,其他测试数据沿用了[Xray v1.0.0版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201124.md)
-  2. 本次测试主要用于对比测试,所以模式选取较少,更多组合的性能皆可参考[v2ray v4.32.1版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/master/v2ray_speed_test_v4.32.1.md)  
+  2. 本次测试主要用于对比测试,所以模式选取较少,更多组合的性能皆可参考[Xray v1.1.1版本各组合方式性能测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/Xray_test_v1.1.1.md)
   3. Xray所有的性能大幅提升.
      - splice模式一骑绝尘.
      - direct模式始终稳定和裸奔基本一致
