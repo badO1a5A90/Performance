@@ -30,9 +30,9 @@
 * 非v2ray的测试即把BC的客户端和服务端程序替换为其他工具,其余不变.
 * 每项单次测试50S,多次测试取均值.XTLS
 
-协议配置组合方式|v2ray v4.32.1速率(Mbps)|v2ray v4.33.0速率(Mbps)|Xray v1.1.0速率(Mbps)|备注
+协议配置组合方式|v2ray v4.32.1速率(Mbps)|v2ray v4.33.0速率(Mbps)|Xray v1.1.1速率(Mbps)|备注
 --- | ---| --- |  --- |---
-VLESS over TCP, XTLS(splice)	|  -  | -  | 4435 |only Xray v1.1.0
+VLESS over TCP, XTLS(splice)	|  -  | -  | 4435 |only Xray v1.1.1
 VLESS over TCP, no TLS	|  1936  | 1891  |2336|仅用于对照,裸奔
 VLESS over TCP, XTLS(direct)	|1873 | - | 2132|v4.33.0 removed XTLS
 VLESS over TCP, with TLS	|334  | 332  |722
@@ -66,7 +66,7 @@ shadowsocks-libev(aes-128-cfb)	|  405   |-|
 ---
   ### 总结
   --- 
-  1. Xray v1.1.0和v1.0.0 除增加splice模式之外,没有额外性能的相关改动,所以除splice模式外,其他测试数据沿用了[Xray v1.0.0版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201124.md)
+  1. Xray v1.1.1和v1.0.0 除增加splice模式之外,没有额外性能的相关改动,所以除splice模式外,其他测试数据沿用了[Xray v1.0.0版本测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201124.md)
   2. 本次测试主要用于对比测试,所以模式选取较少,更多组合的性能皆可参考[Xray v1.1.1版本各组合方式性能测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/Xray_test_v1.1.1.md)
   3. Xray所有的性能大幅提升.
      - splice模式一骑绝尘.
@@ -104,7 +104,7 @@ shadowsocks-libev(aes-128-cfb)	|  405   |-|
 * iperf 3.6
 * [v2ray v4.32.1(with VLESS XTLS readV)](https://github.com/v2fly/v2ray-core/releases/tag/v4.32.1)
 * [v2ray v4.33.0](https://github.com/v2fly/v2ray-core)
-* [Xray v1.1.0](https://github.com/XTLS/Xray-core)
+* [Xray v1.1.1](https://github.com/XTLS/Xray-core)
 * [trojan-go v0.8.2](https://github.com/p4gefau1t/trojan-go)
 * [trojan-gfw v1.16.0](https://github.com/maskedeken/trojan-gfw)
 * [go-shadowsocks2](https://github.com/shadowsocks/go-shadowsocks2)

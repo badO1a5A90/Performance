@@ -41,7 +41,7 @@
 ## 测试内容
 
 * 对比测试Xray各种常用组合方式的性能
-* 与v2ray/trojan/ss更多的对比测试参见 [Xray v1.1.0的性能对比测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201202.md)
+* 与v2ray/trojan/ss更多的对比测试参见 [Xray v1.1.1的性能对比测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201202.md)
 * Xray路由/VLESS回落/nginx分流性能的对比(待测)
 
 ## 测试数据及总结
@@ -99,7 +99,7 @@ go-shadowsocks2+outline(aes-128-gcm)	|  1256 Mbits/sec  |
   4. 协议用VLESS或者trojan可认为没有性能区别,**但目前trojan尚未加入splice支持.**
   5. XTLS(origin)的速度与TLS record大小相关(本次测试为8K).
   6. vmess over TCP, (aes-128-gcm)/(chacha20-poly1305)较其他vmess组合速率较高是因为他们具有readV优化.
-  7. trojan-go/ss沿用的是[Xray v1.1.0的性能对比测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201202.md)中的数据.
+  7. trojan-go/ss沿用的是[Xray v1.1.1的性能对比测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201202.md)中的数据.
 
 
   ### 关于splice
