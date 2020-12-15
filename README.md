@@ -3,10 +3,10 @@ Xray/v2ray推荐使用模式和性能测试,及一些针对性性能测试.
 trojan-go,trojan-gfw,SS各种实现的性能测试.
 # update 20201216
 - Xray v1.1.3版本相对Xray v1.1.1并没有性能上的改动,因此仍可参照Xray v1.1.1的相关测试及对比测试.
-- 
+- [软路由上splice性能下降的研究及解决方案](https://github.com/XTLS/Xray-core/discussions/59)
+
 # update 20201204
 - 增加[Xray v1.1.1版本各组合方式性能测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/Xray_test_v1.1.1.md)
-- [软路由上splice性能下降的研究及解决方案](https://github.com/XTLS/Xray-core/discussions/59)
 # update 20201202
 - 增加[Xray v1.1.1的性能对比测试](https://github.com/badO1a5A90/v2ray-doc/blob/main/performance_test/Xray/speed_test_20201202.md)
 - **splice模式一骑绝尘**
