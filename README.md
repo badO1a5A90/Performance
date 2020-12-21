@@ -1,4 +1,4 @@
-# Xray/v2ray/trojan/shadowsocks 基础性能测试及针对性测试
+# Xray/v2ray/trojan/shadowsocks 性能测试
 
 Xray/v2ray推荐使用模式和性能测试,及一些针对性性能测试.  
 trojan-go,trojan-gfw,SS各种实现的性能测试.
