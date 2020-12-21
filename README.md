@@ -1,6 +1,8 @@
-# Xray/v2ray/trojan/SS性能测试
+# Xray/v2ray/torjan/shadowsocks 基础性能测试及针对性测试
+
 Xray/v2ray推荐使用模式和性能测试,及一些针对性性能测试.  
 trojan-go,trojan-gfw,SS各种实现的性能测试.
+
 # update 20201216
 - Xray v1.1.3版本相对Xray v1.1.1并没有性能上的改动,因此仍可参照Xray v1.1.1的相关测试及对比测试.
 - [软路由上splice性能下降的研究及解决方案](https://github.com/XTLS/Xray-core/discussions/59)
